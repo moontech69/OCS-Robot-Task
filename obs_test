@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Check if we're in CLI mode or server mode
+if [ $# -eq 0 ]; then
+  # Server mode
+  cd "$(dirname "$0")/backend" && npm start
+elif [ $# -eq 2 ]; then
+  # CLI mode
+  cd "$(dirname "$0")/backend" && node src/index.js "$1" "$2"
+else
+  echo "Usage:"
+  echo "  ./obs_test - starts the REST API server (no parameters)"
+  echo "  ./obs_test input.json output.json - CLI mode processing files"
+  exit 1
+fi

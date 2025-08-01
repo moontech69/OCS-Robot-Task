@@ -1,0 +1,38 @@
+{
+  "name": "mars-robot-challenge",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --coverage",
+    "cli": "node src/index.js",
+    "client": "node src/client.js",
+    "interactive": "node src/cli-interactive.js",
+    "pathfinding": "node src/cli-pathfinding.js"
+  },
+  "bin": {
+    "obs_interactive": "./src/cli-interactive.js",
+    "obs_pathfinding": "./src/cli-pathfinding.js"
+  },
+  "keywords": [
+    "mars",
+    "robot",
+    "simulation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Mars Robot Challenge - A simulation of a Mars surveillance robot",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "inquirer": "^8.2.4",
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

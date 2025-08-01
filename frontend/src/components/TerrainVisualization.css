@@ -1,0 +1,135 @@
+.terrain-visualization {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.terrain-visualization h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.terrain-viz-grid {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.terrain-viz-row {
+  display: flex;
+  flex: 1;
+}
+
+.terrain-viz-cell {
+  flex: 1;
+  aspect-ratio: 1;
+  min-width: 60px;
+  min-height: 60px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.terrain-type {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.robot-position {
+  font-size: 24px;
+  position: absolute;
+  z-index: 2;
+}
+
+/* Terrain type colors */
+.terrain-type-fe {
+  background-color: #a1887f;
+}
+
+.terrain-type-se {
+  background-color: #ffcc80;
+}
+
+.terrain-type-w {
+  background-color: #81d4fa;
+}
+
+.terrain-type-si {
+  background-color: #e6ee9c;
+}
+
+.terrain-type-zn {
+  background-color: #b39ddb;
+}
+
+.terrain-type-obs {
+  background-color: #ef9a9a;
+}
+
+/* Cell states */
+.visited {
+  box-shadow: inset 0 0 0 4px rgba(76, 175, 80, 0.5);
+}
+
+.final {
+  box-shadow: inset 0 0 0 4px rgba(33, 150, 243, 0.8);
+}
+
+/* Legend */
+.terrain-legend {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.terrain-legend h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

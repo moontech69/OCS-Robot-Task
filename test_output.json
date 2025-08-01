@@ -1,0 +1,27 @@
+{
+  "VisitedCells": [
+    {
+      "X": 0,
+      "Y": 0
+    },
+    {
+      "X": 1,
+      "Y": 0
+    },
+    {
+      "X": 1,
+      "Y": 1
+    }
+  ],
+  "SamplesCollected": [
+    "Fe"
+  ],
+  "Battery": 34,
+  "FinalPosition": {
+    "Location": {
+      "X": 1,
+      "Y": 1
+    },
+    "Facing": "South"
+  }
+}

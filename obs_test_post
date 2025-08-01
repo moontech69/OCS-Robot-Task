@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Check if we have the correct number of arguments
+if [ $# -ne 1 ]; then
+  echo "Usage: ./obs_test_post input.json"
+  exit 1
+fi
+
+# Get the absolute path of the input file
+INPUT_FILE="$(realpath "$1")"
+
+# Run the client
+cd "$(dirname "$0")/backend" && node src/client.js "$INPUT_FILE"
