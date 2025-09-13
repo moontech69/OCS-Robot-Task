@@ -10,15 +10,23 @@ class PathfindingService {
     this.terrain = terrain;
     this.rows = terrain.length;
     this.cols = terrain[0].length;
-    
-    this.commandCosts = {
-      F: 3,
-      B: 3,
-      L: 2,
-      R: 2,
-      S: 8,
-      E: -9 // Net cost of -9 (uses 1, gains 10)
-    };
+  }
+
+  getCommandCost(command) {
+    switch (command) {
+      case "F":
+      case "B":
+        return 3;
+      case "L":
+      case "R":
+        return 2;
+      case "S":
+        return 8;
+      case "E":
+        return -10;
+      default:
+        return Infinity;
+    }
   }
 
   /**
@@ -73,15 +81,14 @@ class PathfindingService {
           continue;
         }
         
-        const batteryCost = this.commandCosts[command];
         const currentBattery = batteryLevels.get(currentKey);
-        const newBattery = currentBattery + batteryCost;
+        const newBattery = currentBattery - this.getCommandCost(command);;
         
         if (newBattery <= 0) {
           continue;
         }
         
-        const tentativeGScore = gScore.get(currentKey) + 1;
+        const tentativeGScore = gScore.get(currentKey) + this.getStepCost(command);
         
         if (!gScore.has(neighborKey) || tentativeGScore < gScore.get(neighborKey)) {
           cameFrom.set(neighborKey, { key: currentKey, command });

@@ -143,21 +143,7 @@
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
 <a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,10 +175,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
@@ -200,10 +184,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -213,7 +195,6 @@
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -231,7 +212,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -244,10 +224,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">const Robot = require('../models/Robot');
-&nbsp;
-/**
- * Service for handling robot simulation
- */
 class SimulationService {
   /**
    * Run a simulation with the provided input
@@ -279,23 +255,19 @@ class SimulationService {
 &nbsp;
     const { terrain, battery, commands, initialPosition } = input;
 &nbsp;
-    // Validate terrain
     if (!terrain || !Array.isArray(terrain) || terrain.length === 0) {
       throw new Error('Terrain must be a non-empty 2D array');
     }
 &nbsp;
-    // Check if all rows have the same length
     const rowLength = terrain[0].length;
     if (!rowLength || terrain.some(row =&gt; !Array.isArray(row) || row.length !== rowLength)) {
       throw new Error('Terrain must be a valid 2D array with consistent row lengths');
     }
 &nbsp;
-    // Validate battery
     if (typeof battery !== 'number' || battery &lt; 0) {
       throw new Error('Battery must be a non-negative number');
     }
 &nbsp;
-    // Validate commands
     if (!commands || !Array.isArray(commands) || commands.length === 0) {
       throw new Error('Commands must be a non-empty array');
     }
@@ -305,7 +277,6 @@ class SimulationService {
       throw new Error(`Commands must be one of: ${validCommands.join(', ')}`);
     }
 &nbsp;
-    // Validate initial position
     if (!initialPosition) {
       throw new Error('Initial position is required');
     }
@@ -321,7 +292,6 @@ class SimulationService {
       throw new Error('Initial position must have a valid facing direction (North, South, East, West)');
     }
 &nbsp;
-    // Validate that initial position is within terrain bounds and not an obstacle
     const { x, y } = initialPosition.location;
     if (y &lt; 0 || y &gt;= terrain.length || x &lt; 0 || x &gt;= terrain[0].length) {
       throw new Error('Initial position is out of terrain bounds');
@@ -340,7 +310,7 @@ module.exports = new SimulationService();</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-01T13:21:38.132Z
+                at 2025-09-05T14:34:17.990Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
